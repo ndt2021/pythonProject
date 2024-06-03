@@ -8,14 +8,10 @@ Created on Mon Feb 18 22:06:34 2019
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-#numOfPoint = 30
-#noise = np.random.normal(0,1,numOfPoint).reshape(-1,1)
-#x = np.linspace(30, 100, numOfPoint).reshape(-1,1)
-#N = x.shape[0]
-#y = 15*x + 8 + 20*noise
-#plt.scatter(x, y)
+from sklearn.linear_model import LinearRegression
+from sklearn.preprocessing import PolynomialFeatures
 
-data = pd.read_csv('data_linear.csv').values
+data = pd.read_csv('data_square.csv').values
 N = data.shape[0]
 x = data[:, 0].reshape(-1, 1)
 y = data[:, 1].reshape(-1, 1)
@@ -24,7 +20,6 @@ plt.xlabel('mét vuông')
 plt.ylabel('giá')
 
 x = np.hstack((np.ones((N, 1)), x))
-
 w = np.array([0.,1.]).reshape(-1,1)
 
 numOfIteration = 100 # số lần lặp bước 2 để tìm w
